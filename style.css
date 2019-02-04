@@ -1,0 +1,29 @@
+/* *{
+  background-color: antiquewhite;
+} */
+body{
+  margin: 0;
+}
+.gameBackground{
+  background-image:url(img/kisspng-high-rise-building-skyscraper-city-__building-5a8e0cf8a52297.7854214115192588726764.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1100px;
+ 
+ 
+  margin-left: 10%;
+ 
+ 
+}
+
+.start-btn{
+  background-color: rgb(206, 30, 30);
+  border: 7px solid gray;
+  font-size: 35px;
+  color: white;
+  border-radius: 10px;
+  
+}
+ 
+
+  
