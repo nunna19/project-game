@@ -8,17 +8,25 @@ var canvas = document.querySelector('.gameBackground');
    canvas.width = 1100;
     canvas.height = 550;
 
+
+
+    var mouse ={};
 window.addEventListener('mousemove',function(event){
-// console.log(event)
- 
-  hero.x = event.x - 100;
- 
-  // 100 * heho.width/100;
-  hero.y =event.y + 50 ;
-  
+  mouse.x = event.x ;
+  mouse.y =event.y ;
+
+
+  if (mouse.x - 150 > hero.x){
+    img.src = 'img/rightmissite.png';
+  }else {
+    img.src = 'img/leftmissite.png';
+  }
  })
 
-
+      setInterval(() => {
+        hero.x = mouse.x -150;
+        hero.y = mouse.y +5
+      }, 70);
 
 
 
@@ -39,24 +47,15 @@ window.addEventListener('mousemove',function(event){
   var hero ={
     x : 0,
     y : 0,
-    imgX: 100,
-    imgY: 50
+    imgWidth: 100,
+    imgHieght: 50
   }
  
   
    
 
 
-  var ball ={
-    radius : 20,
-    x : Math.random() * canvas.width,
-    y : 0,
-    speedDicrY : 3,
-    star :[],
-    ballBounce : 0.8,
-    gravity : 1,
-    floor: 500
-   }
+ 
 
   var img = new Image();
  
@@ -68,14 +67,8 @@ window.addEventListener('mousemove',function(event){
 
   function drawHero(){
    
-    if (hero.x < 500 ){
-    
-      img.src = 'img/leftmissite.png';
-    }else {
-      img.src = 'img/rightmissite.png';
-    }
-    ctx.drawImage(img, hero.x,hero.y,hero.imgX,hero.imgY)
-   
+    ctx.drawImage(img, hero.x,hero.y,hero.imgWidth,hero.imgHieght)
+  
   }
 
  
@@ -94,7 +87,16 @@ window.addEventListener('mousemove',function(event){
 
 
 
-
+  var ball ={
+    radius : 20,
+    x : Math.random() * canvas.width,
+    y : 0,
+    speedDicrY : 0.01,
+    star :[],
+    ballBounce : 0.8,
+    gravity : 1,
+    floor: 500
+   }
 
   function drawBall(){
     ctx.beginPath();
@@ -113,9 +115,11 @@ window.addEventListener('mousemove',function(event){
     }else if (ball.x - ball.radius < 0 ){
       ball.x = +ball.radius
     }
-    ball.y += 3
+   
+    ball.y += ball.speedDicrY
+   ball.x += 3;
+   
   }
-
     animate()
 
 
