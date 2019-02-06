@@ -24,9 +24,10 @@ body{
   color: white;
   border-radius: 10px;
   margin-left: 25%;
+}
 
-
-
+.START-GAME{
+background-image: url(img/GameOver.gif)
 }
  
 

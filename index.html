@@ -11,16 +11,70 @@
 </head>
 <body>
  
- 
+  <canvas class="START-GAME">
+        <button class="start-btn">START</button>  
+  </canvas>
 
-  
- 
   <canvas class="gameBackground" ></canvas>
 
 
-  <button class="start-btn">START</button>
+  <canvas class="GAME-OVER">
+    <h1>GAME OVER</h1>
+    <button class="start-btn">START</button>  
+  </canvas>
+  
+ 
+ 
+
+
+  <!-- <button class="start-btn">START</button> -->
 </body>
 <script type="text/javascript" src="code.js"></script>
 </html>
 
 
+
+
+
+
+var x,y,spriteWidth, spriteHeight, rows,cols,trackRight,trackLeft,width,height,curFrame,frameCount,leftFrame,srcX,srcY,scale,speed;
+ 
+ spriteWidth = 489; 
+ spriteHeight = 49;
+
+ rows = 1; 
+ cols = 10
+ 
+ trackRight = 0; 
+ trackLeft = 1
+
+ width = spriteWidth/cols; 
+ height = spriteHeight/rows
+
+ curFrame = 0; 
+ frameCount = 9; 
+
+ x=0;
+ y=405
+
+ srcX; 
+ srcY;
+
+ scale = 2
+ speed = 12; 
+ 
+ var character = new Image(); 
+ character.src = "img/Effect2.png";
+ 
+                function updateEffect(){
+
+                curFrame = ++curFrame % frameCount; 
+                srcX = curFrame * width; 
+                srcY = trackRight * height; 
+                ctx.clearRect(x,y,width,height); 
+                
+                }
+                function draw(){
+                  updateEffect()
+                ctx.drawImage(character,srcX,srcY,width,height,x,y,width*scale ,height*scale );
+                }
