@@ -81,7 +81,7 @@ var ctx = canvas.getContext('2d');
    var arrBall =[]
 
   for(let i=0; i<1000; i++){ //create all balls 
-    let eachBall = { ...ball , y:i*-100, x:Math.random()*canvas.width}
+    let eachBall = { ...ball , y:i*-150, x:Math.random()*canvas.width}
     arrBall.push(eachBall)
   }
 
