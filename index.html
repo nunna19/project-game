@@ -11,23 +11,23 @@
 </head>
 <body>
  
-  <canvas class="START-GAME">
-        <button class="start-btn">START</button>  
+    
+
+  <canvas class="gameBackground" >
+      
+      <!-- <audio id="multiaudio" src="img/8bit_bomb_explosion.wav" preload="auto"></audio> -->
   </canvas>
 
-  <canvas class="gameBackground" ></canvas>
 
 
-  <canvas class="GAME-OVER">
-    <h1>GAME OVER</h1>
-    <button class="start-btn">START</button>  
-  </canvas>
   
  
  
 
 
-  <!-- <button class="start-btn">START</button> -->
+  <button class="start-btn">START</button>
+  <h2 class="score">CURRENT SCORE:<span class = "curScore"> 0</span></h2>
+  <!-- <h2 class="topScore">TOP SCORE:<span class="topScore"> 0</span></h2> -->
 </body>
 <script type="text/javascript" src="code.js"></script>
 </html>
@@ -37,44 +37,39 @@
 
 
 
-var x,y,spriteWidth, spriteHeight, rows,cols,trackRight,trackLeft,width,height,curFrame,frameCount,leftFrame,srcX,srcY,scale,speed;
- 
- spriteWidth = 489; 
- spriteHeight = 49;
 
- rows = 1; 
- cols = 10
- 
- trackRight = 0; 
- trackLeft = 1
 
- width = spriteWidth/cols; 
- height = spriteHeight/rows
 
- curFrame = 0; 
- frameCount = 9; 
 
- x=0;
- y=405
 
- srcX; 
- srcY;
 
- scale = 2
- speed = 12; 
- 
- var character = new Image(); 
- character.src = "img/Effect2.png";
- 
-                function updateEffect(){
+                  <!-- var xImgBall,yImgBall,widthImgBall,heightImgBall,scaleImgBall,speedImgBall,spriteWidthImgBall,spriteHeightImgBall,rowsImgBall,colsImgBall,curFrameImgBall,frameCountImgBall,srcXImgBall,srcYImgBall;
 
-                curFrame = ++curFrame % frameCount; 
-                srcX = curFrame * width; 
-                srcY = trackRight * height; 
-                ctx.clearRect(x,y,width,height); 
-                
-                }
-                function draw(){
-                  updateEffect()
-                ctx.drawImage(character,srcX,srcY,width,height,x,y,width*scale ,height*scale );
-                }
+                  spriteWidthImgBall= 539;
+                  spriteHeightImgBall = 92;
+                  
+                  rowsImgBall= 1;
+                  colsImgBall= 5;
+                  
+                  curFrameImgBall= 0
+                  frameCountImgBall = 5
+                  
+                  srcYImgBall= 0;
+                  srcXImgBall= 0;
+                  
+                  widthImgBall = spriteWidthImgBall/colsImgBall;
+                  heightImgBall = spriteHeightImgBall/rowsImgBall;
+                  
+                  xImgBall= 122;
+                  yImgBall= 400;
+                  
+                  scaleImgBall = 3;
+                  speedImgBall = 10; 
+                  
+                  var ImgBall= new Image(); 
+                  ImgBall.src = "img/ball.gif";
+                                    
+                                  function drawImgBall(){
+                                  ctx.drawImage(ImgBall,srcXImgBall,srcYImgBall,widthImgBall,heightImgBall,arrBall.x,arrBall.y,widthImgBall,heightImgBall);
+                                    console.log('work!!!!')
+                                    } -->
