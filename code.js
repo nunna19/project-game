@@ -117,7 +117,9 @@ var ctx = canvas.getContext('2d');
   var score = 0;
    var ImgBall= new Image(); 
    ImgBall.src = "img/ball.gif";
-                     
+  function hi(){
+    arrBall.splice(index,1) = false
+  }               
   function drawBall(ball,index){ //draw each ball 
            
    
@@ -137,6 +139,7 @@ var ctx = canvas.getContext('2d');
                     bombSound.play()
                     score += point;
                     document.querySelector('.curScore').innerHTML= score
+                   
                     arrBall.splice(index,1)
                     
 
@@ -144,7 +147,7 @@ var ctx = canvas.getContext('2d');
                         ball.x + 2*ball.radius > x2 &&
                         ball.y < y2 + height2 &&
                         2*ball.radius + ball.y > y2){
-                         carDrawEffectF() 
+                       
                          crushFerrari()          
                           
 
@@ -152,31 +155,39 @@ var ctx = canvas.getContext('2d');
                          ball.x + 2*ball.radius > x3 &&
                          ball.y < y3 + height3 &&
                          2*ball.radius + ball.y > y3){
-                        
-                        carDrawEffectPF()           
-                       crushPontiacFirebird()
-                      
-                }
+                                     
+                          crushPontiacFirebird()
+                                          
+                          }else if (ball.x < x5 + width5 &&
+                             ball.x + 2*ball.radius > x5 &&
+                             ball.y < y5 + height5 &&
+                             2    *ball.radius + ball.y > y5){
+
+
+                           crushBugattiVeyron() 
+                                             
+                         } else if (ball.x < x6 + width6 &&
+                         ball.x + 2*ball.radius > x6 &&
+                         ball.y < y5 + height6 &&
+                         2*ball.radius + ball.y > y6){
+ 
+                           crushChevrolet()                    
+ }
 
          if( ball.y + ball.radius  > ball.floor){
-            //console.log('game over')
             drawEffect(ball)
-              if (index < 1 ){
-                setTimeout(womenScream.play(),200)
-              }else{
-                womenScream.pause()              
-              }
 
-              if (index < 10 ){
-                  setTimeout(bombSound.play(),200)
-              }else{
-                bombSound.pause()
-              }setTimeout(drawGameOver, songStartPlay.pause(), 500)
+            FireSong.play()
+ 
+              setTimeout(drawGameOver, songStartPlay.pause(), 500)
 
               if(!gameOver) {
                 gameOverSound.play()
+                womenScream.play()
                 //clearInterval(ANIME)
                 gameOver = true;
+                console.log('just once')
+                
                 canvas.addEventListener('click', function() { 
                   window.location.reload()
                 }, false);
@@ -245,14 +256,7 @@ imgEffect.src = "img/Effect2.png";
                  
                ctx.drawImage(imgEffect,srcX1,srcY1,width1,height1,ball.x-20,ball.y-30,width1*scale1 ,height1*scale1 );
                }
-               function carDrawEffectF(){
-                 updateEffect()
-               ctx.drawImage(imgEffect,srcX1,srcY1,width1,height1,x2,y2-90,width1*scale1 ,height1*scale1 );
-               }
-               function carDrawEffectPF(){
-                 updateEffect()
-               ctx.drawImage(imgEffect,srcX1,srcY1,width1,height1,x3,y3-90,width1*scale1 ,height1*scale1 );
-               }
+          
        
 
 
@@ -369,7 +373,7 @@ imgBoy3.src = "img/Police-Character-.png";
 /////////.................................................Ferrari...................................................////////
 
 
-var x2,y2,width2,height2,scale2,speed2;
+var x2,y2,width2,height2,speed2;
 width2 = 140;
 height2 = 70;
 
@@ -377,7 +381,6 @@ x2=canvas.width;
 
 y2=445;
 
-scale2 = 3;
 speed2 = 12; 
 
 var imgFerrari = new Image(); 
@@ -386,6 +389,10 @@ imgFerrari.src = "img/ferrari.png";
                 function drawFerrari(){
                 ctx.drawImage(imgFerrari,x2,y2,width2,height2);
                 x2 -=speed2
+                if(x2 < 0){
+                  x2 = canvas.width;
+               
+                } 
                   }
                 function crushFerrari(){
                   height2 = 20   // height of Ferrari
@@ -401,17 +408,14 @@ imgFerrari.src = "img/ferrari.png";
 
 /////////.............................................PontiacFirebird...................................................////////
  
-var x3,y3,width3,height3,scale3,speed3;
+var x3,y3,width3,height3,speed3;
 width3 = 190;
 height3 = 80;
 
 x3=0;
 y3=470;
 
-scale3 = 3;
 speed3 = 9; 
-
-
 
 var imgPontiacFirebird= new Image(); 
 imgPontiacFirebird.src = "img/PontiacFirebird.png";
@@ -420,7 +424,10 @@ imgPontiacFirebird.src = "img/PontiacFirebird.png";
                 function drawPontiacFirebird(){
                 ctx.drawImage(imgPontiacFirebird,x3,y3,width3,height3);
                 x3 +=speed3
-               
+                if(x3 > canvas.width){
+                  x3 = 0;
+                
+                } 
                 }
                 function crushPontiacFirebird(){
                   height3 = 20; // height of PontiacFirebird
@@ -431,30 +438,66 @@ imgPontiacFirebird.src = "img/PontiacFirebird.png";
 /////////.............................................BugattiVeyron...................................................////////
 
 
-var x3,y3,width3,height3,scale3,speed3;
-width3 = 190;
-height3 = 80;
+var x5,y5,width5,height5,speed5;
+width5 = 130;
+height5 = 40;
 
-x3=0;
-y3=470;
+x5=0;
+y5=470;
 
-scale3 = 3;
-speed3 = 9; 
+speed5 = 5; 
 
-
-
-var imgPontiacFirebird= new Image(); 
-imgPontiacFirebird.src = "img/BugattiVeyron.png";
+var imgBugattiVeyron= new Image(); 
+imgBugattiVeyron.src = "img/BugattiVeyron.png";
 
                   
-                function drawPontiacFirebird(){
-                ctx.drawImage(imgPontiacFirebird,x3,y3,width3,height3);
-                x3 +=speed3
-               
+                function drawBugattiVeyron(){
+                ctx.drawImage(imgBugattiVeyron,x5,y5,width5,height5);
+                x5+=speed5
+                  if(x5 > canvas.width){
+                    x5 = 0;
+                                 
+                  }    
+                    
+                }
+                function crushBugattiVeyron(){
+                  height5 = 20; // height of PontiacFirebird
+                  y5 =500;       // y  of PontiacFirebird
+                  x5 -= 10.5;      // x of PontiacFirebird
+  
                 }
 
 
+/////////.............................................Chevrolet...................................................////////  
 
+
+var x6,width6,height6,speed6;
+width6 = 110;
+height6 = 50;
+
+x6=canvas.width;
+
+y6=445;
+
+speed6 = 5; 
+
+var imgChevrolet = new Image(); 
+imgChevrolet.src = "img/Chevrolet.png";
+
+                function drawChevrolet(){
+                ctx.drawImage(imgChevrolet,x6,y6,width6,height6);
+                x6 -=speed6
+                if(x6 < 0){
+                  x6 = canvas.width;
+               
+                } 
+                  }
+                function crushChevrolet(){
+                  height6 = 20   // height of Ferrari
+                  y6=490;        // y of Ferrari
+                  x6 +=4        // x of Ferrarij
+                }
+           
 
 
 
@@ -475,8 +518,14 @@ imgGameOver.src = "img/GameOver.gif";
                   }
 
 
+function drawCars(){
+  drawChevrolet()
+  drawFerrari()
+  drawBugattiVeyron()
 
+drawPontiacFirebird()
 
+}
 
 
 
@@ -508,10 +557,12 @@ let bombSound = new Audio()
 let gameOverSound = new Audio()
 let womenScream = new Audio()
 let songStartPlay= new Audio()
+let FireSong= new Audio()
 bombSound.src = "./img/8bit_bomb_explosion (online-audio-converter.com).mp3"
 gameOverSound.src = "./img/15879275_retro-game-synth-organ-game-over_by_ghetty_preview.mp3"
 womenScream.src ="./img/NFF-girl-scream (1) (online-audio-converter.com).mp3"
 songStartPlay.src ="./img/1-04 Desire.mp3"
+FireSong.src="./img/Fire_Burning-JaBa-810606813.mp3"
 
 
 
@@ -523,17 +574,15 @@ songStartPlay.src ="./img/1-04 Desire.mp3"
 function animate(){ //draw everything in
  
   ctx.clearRect(0,0,canvas.width,canvas.height); //clear WHOLE canvas 
-  // setInterval(drawBoy,2000)
+
   drawBoy()
   drawGirl1()
   drawBoy2()
   drawBoy3()  
-  
-              setInterval(drawFerrari,10000)
-              drawPontiacFirebird()
+
               drawHero()
               drawBalls()
-              
+              drawCars()
               
           }
 
