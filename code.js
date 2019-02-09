@@ -70,7 +70,7 @@ var ctx = canvas.getContext('2d');
 
   var ball ={
     radius : 100,
-    x : Math.random() * canvas.width-20,
+    x : Math.random() * (canvas.width-20),
     y : 0,
     speedDicrY : 0.01,
     gravity : 0.5,
@@ -146,7 +146,8 @@ var ctx = canvas.getContext('2d');
                         ball.x + ball.radius > x2 &&
                         ball.y < y2  &&
                         ball.radius + ball.y > y2){
-                       
+                          
+                          
                          crushFerrari()          
                           
 
@@ -396,7 +397,7 @@ imgFerrari.src = "img/ferrari.png";
                 function crushFerrari(){
                   height2 = 20   // height of Ferrari
                   y2=490;        // y of Ferrari
-                  x2 +=10        // x of Ferrarij
+                  x2 +=11        // x of Ferrarij
                 }
 
 
