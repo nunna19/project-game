@@ -70,7 +70,7 @@ var ctx = canvas.getContext('2d');
 
   var ball ={
     radius : 100,
-    x : Math.random() * canvas.width,
+    x : Math.random() * canvas.width-20,
     y : 0,
     speedDicrY : 0.01,
     gravity : 0.5,
@@ -142,33 +142,33 @@ var ctx = canvas.getContext('2d');
                     arrBall.splice(index,1)
                     
 
-              }else if (ball.x < x2 + width2 &&
-                        ball.x + 2*ball.radius > x2 &&
-                        ball.y < y2 + height2 &&
-                        2*ball.radius + ball.y > y2){
+              }else if (ball.x < x2  &&
+                        ball.x + ball.radius > x2 &&
+                        ball.y < y2  &&
+                        ball.radius + ball.y > y2){
                        
                          crushFerrari()          
                           
 
-                }else if (ball.x < x3 + width3 &&
-                         ball.x + 2*ball.radius > x3 &&
-                         ball.y < y3 + height3 &&
-                         2*ball.radius + ball.y > y3){
+                }else if (ball.x < x3  &&
+                         ball.x + ball.radius > x3 &&
+                         ball.y < y3  &&
+                         ball.radius + ball.y > y3){
                                      
                           crushPontiacFirebird()
                                           
-                          }else if (ball.x < x5 + width5 &&
-                             ball.x + 2*ball.radius > x5 &&
-                             ball.y < y5 + height5 &&
-                             2*ball.radius + ball.y > y5){
+                          }else if (ball.x < x5  &&
+                             ball.x + ball.radius > x5 &&
+                             ball.y < y5  &&
+                             ball.radius + ball.y > y5){
 
 
                            crushBugattiVeyron() 
                                              
-                         } else if (ball.x < x6 + width6 &&
-                         ball.x + 2*ball.radius > x6 &&
-                         ball.y < y5 + height6 &&
-                         2*ball.radius + ball.y > y6){
+                         } else if (ball.x < x6 &&
+                         ball.x + ball.radius > x6 &&
+                         ball.y < y5 &&
+                         ball.radius + ball.y > y6){
  
                            crushChevrolet()                    
  }
@@ -195,13 +195,13 @@ var ctx = canvas.getContext('2d');
                                    
           }else {           
               ball.y += ball.speed
-              ball.x += 3;
+              
             }
 
           if ( ball.x + ball.radius > canvas.width){
-              ball.x = -ball.radius
-            }else if (ball.x - ball.radius < 0 ){
-              ball.x = +ball.radius
+              ball.x--
+            }else if (ball.x + ball.radius < 0 ){
+              ball.x++
             }
         }
 
