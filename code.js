@@ -4,7 +4,7 @@ window.onload = function() {
   document.querySelector('.start-btn').onclick = function(){
     window.clearInterval(ANIME)
     ANIME = window.setInterval(animate, 100)
-    songStartPlay.play()
+   
     setInterval(arrayboy,200)
   }
 }
@@ -81,7 +81,7 @@ var ctx = canvas.getContext('2d');
    var arrBall =[]
 
   for(let i=0; i<1000; i++){ //create all balls 
-    let eachBall = { ...ball , y:i*-150, x:Math.random()*canvas.width}
+    let eachBall = { ...ball , y:i*-210, x:Math.random()*canvas.width}
     arrBall.push(eachBall)
   }
 
@@ -138,8 +138,7 @@ var ctx = canvas.getContext('2d');
                     drawEffect(ball) 
                     bombSound.play()
                     score += point;
-                    document.querySelector('.curScore').innerHTML= score
-                   
+                    document.querySelector('.curScore').innerHTML= score                   
                     arrBall.splice(index,1)
                     
 
@@ -161,7 +160,7 @@ var ctx = canvas.getContext('2d');
                           }else if (ball.x < x5 + width5 &&
                              ball.x + 2*ball.radius > x5 &&
                              ball.y < y5 + height5 &&
-                             2    *ball.radius + ball.y > y5){
+                             2*ball.radius + ball.y > y5){
 
 
                            crushBugattiVeyron() 
@@ -472,14 +471,14 @@ imgBugattiVeyron.src = "img/BugattiVeyron.png";
 
 
 var x6,width6,height6,speed6;
-width6 = 110;
+width6 = 130;
 height6 = 50;
 
 x6=canvas.width;
 
 y6=445;
 
-speed6 = 5; 
+speed6 = 7; 
 
 var imgChevrolet = new Image(); 
 imgChevrolet.src = "img/Chevrolet.png";
